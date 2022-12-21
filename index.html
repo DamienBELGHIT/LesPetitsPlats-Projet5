@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>Les Petits Plats</title>
+    <script src="https://kit.fontawesome.com/dfece5ff19.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+        <img src="./images/logo.png" class="logo" alt="Logo Les Petits Plats"/>
+        <form id="form-search-recipe">
+            <div id="searchbar">
+                <input type="text" id="search-recipe" name="recipe" placeholder="Rechercher une recette">
+                <button id="search-submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div id="filters">
+                <div class="filter">
+                    <input type="text" name="ingredient-filter" list="ingredients-list" placeholder="Ingrédients">
+                    <datalist id="ingredients-list">
+                        <option value="Coco">  
+                        <option value="Thon">
+                    </datalist>
+                </div>
+                <div class="filter">
+                    <input type="text" name="appareil-filter" list="appareils-list" placeholder="Appareils">
+                    <datalist id="appareils-list">
+                        <option value="Mixeur">  
+                        <option value="Batteur">
+                    </datalist>
+                </div>
+                <div class="filter">
+                    <input type="text" name="ustensile-filter" list="ustensiles-list" placeholder="Ustensiles">
+                    <datalist id="ustensiles-list">
+                        <option value="Louche">  
+                        <option value="Couteau">
+                    </datalist>
+                </div>
+            </div>
+        </form>
+    </header>
+    <main id="main">
+        <div class="recipes_section"></div>
+    </main>
+    <script type="module" src="scripts/pages/index.js"></script>
+  </body>
+</html>

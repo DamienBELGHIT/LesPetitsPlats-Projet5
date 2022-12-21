@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form-search-recipe{
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#searchbar {
+    display: flex;
+    height: 69px;
+    width: 95%;
+    border-radius: 5px;
+}
+
+#search-recipe {
+    width: 100%;
+    border:0;
+    padding: 20px;
+    background-color: #E7E7E7;
+}
+
+#search-submit {
+    cursor: pointer;
+    width: 5%;
+    font-size: 1.5em;
+    border:0;
+    background-color: #E7E7E7;
+}
+
+#filters{
+    display: flex;
+}
