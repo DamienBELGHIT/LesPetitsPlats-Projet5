@@ -1,0 +1,32 @@
+//Factory function creating a tag
+export function tagFactory(data){
+    const {name, type} = data;
+    
+    function getTagDOM(){
+        const div_main = document.createElement("div");
+        div_main.classList.add("tag");
+
+        //name
+        const div_name = document.createElement("span");
+        div_name.textContent = name;
+
+        //remove icon
+        const icon_delete = document.createElement("i");
+        icon_delete.classList.add("fa-regular", "fa-circle-xmark");
+        icon_delete.addEventListener("click", ()=>removeTag(div_main));
+        
+        //Removes a tag from the search bar
+        function removeTag(tag){
+            tag.remove();
+        }
+
+        //assembling
+        div_main.appendChild(div_name);
+        div_main.appendChild(icon_delete);
+
+        return (div_main);
+    }
+
+    return {getTagDOM};
+}
+

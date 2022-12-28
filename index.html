@@ -16,27 +16,37 @@
                 <input type="text" id="search-recipe" name="recipe" placeholder="Rechercher une recette">
                 <div id="search-submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
+            <div class="tags_section"></div>
             <div id="filters">
-                <div class="filter">
-                    <input type="text" name="ingredient-filter" list="ingredients-list" placeholder="Ingrédients">
-                    <datalist id="ingredients-list">
-                        <option value="Coco">  
-                        <option value="Thon">
-                    </datalist>
+                <div class="filter" id="ingredient-filter">
+                    <div class="filter-heading">
+                        <input type="text" name="ingredient" placeholder="Ingrédients" autocomplete="off">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                    <ul>
+                        <li>Coco</li>
+                        <li>Thon</li>
+                    </ul>
                 </div>
-                <div class="filter">
-                    <input type="text" name="appareil-filter" list="appareils-list" placeholder="Appareils">
-                    <datalist id="appareils-list">
-                        <option value="Mixeur">  
-                        <option value="Batteur">
-                    </datalist>
+                <div class="filter" id="appareil-filter">
+                    <div class="filter-heading">
+                        <input type="text" name="appareil" placeholder="Appareils" autocomplete="off">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                    <ul>
+                        <li>Mixeur</li>
+                        <li>Batteur</li>
+                    </ul>
                 </div>
-                <div class="filter">
-                    <input type="text" name="ustensile-filter" list="ustensiles-list" placeholder="Ustensiles">
-                    <datalist id="ustensiles-list">
-                        <option value="Louche">  
-                        <option value="Couteau">
-                    </datalist>
+                <div class="filter" id="ustensile-filter">
+                    <div class="filter-heading">
+                        <input type="text" name="ustensile" placeholder="Ustensile" autocomplete="off">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                    <ul>
+                        <li>Louche</li>
+                        <li>Couteau</li>
+                    </ul>
                 </div>
             </div>
         </form>

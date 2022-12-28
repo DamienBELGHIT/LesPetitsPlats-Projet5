@@ -27,7 +27,7 @@ export function recipeFactory(data){
         const icon_timer = document.createElement("i");
         icon_timer.classList.add("fa-regular", "fa-clock");
         const time_txt = document.createElement("span");
-        time_txt.textContent = " "+time + "min";
+        time_txt.textContent = " "+ time + "min";
         div_time.appendChild(icon_timer);
         div_time.appendChild(time_txt);
 
