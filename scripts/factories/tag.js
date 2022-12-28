@@ -5,6 +5,7 @@ export function tagFactory(data){
     function getTagDOM(){
         const div_main = document.createElement("div");
         div_main.classList.add("tag");
+        div_main.setAttribute("type-color",type);
 
         //name
         const div_name = document.createElement("span");

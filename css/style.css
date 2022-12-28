@@ -50,7 +50,6 @@ h2{
 
 .filter {
     cursor: pointer;
-    background: #3282F7;
     margin: 2px;
     width: 130px;
     color: white;
@@ -87,7 +86,6 @@ h2{
     list-style: none;
     padding: 0;
     position: absolute;
-    background: #3282F7;
     width: 130px;    
     padding: 20px;
     left: 0px;
@@ -169,7 +167,6 @@ h2{
 }
 
 .tag {
-    background-color: #3282F7;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -180,4 +177,16 @@ h2{
     margin-left: 10px;
     font-size: 18px;
     cursor: pointer;
+}
+
+[type-color="ingredient"], [type-color="ingredient"] ul{
+    background-color: #3282F7;
+}
+
+[type-color="device"], [type-color="device"] ul{
+    background-color:#68D9A4;
+}
+
+[type-color="ustensile"], [type-color="ustensile"] ul{
+    background-color: #ED6454;
 }

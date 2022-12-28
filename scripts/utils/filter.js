@@ -50,6 +50,6 @@ function addTag(tagData){
 filters.forEach((filter) => {
     const filterElems = filter.querySelectorAll("ul li");
     filterElems.forEach((filterElem)=>{
-        filterElem.addEventListener("click", ()=>addTag({name:filterElem.textContent}));
+        filterElem.addEventListener("click", ()=>addTag({name:filterElem.textContent, type:filter.getAttribute("type-color")}));
     })
 });
