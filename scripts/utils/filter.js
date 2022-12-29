@@ -53,3 +53,13 @@ filters.forEach((filter) => {
         filterElem.addEventListener("click", ()=>addTag({name:filterElem.textContent, type:filter.getAttribute("type-color")}));
     })
 });
+
+//Events changing the filters lists when the input changes to match the input
+filters.forEach((filter) => {
+    const filterInput = filter.querySelector("input");
+    const filterElems = filter.querySelectorAll("ul li");
+
+    filterInput.addEventListener("input",()=>filterElems.forEach((filterElem)=>{
+        filterElem.style.display = filterElem.textContent.toLowerCase().includes(filterInput.value.toLowerCase()) ? "block" : "none";
+    }));
+});
