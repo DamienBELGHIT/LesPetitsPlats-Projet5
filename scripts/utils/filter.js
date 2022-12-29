@@ -1,8 +1,5 @@
-import { tagFactory } from "../factories/tag.js";
-
 //Get DOM elements
 const filters = document.querySelectorAll(".filter");
-const tagSection = document.querySelector('.tags_section');
 
 //Closes all filter lists when there's a click outside them
 window.addEventListener("click", (e)=>{
@@ -39,27 +36,14 @@ function displayFilterList(filter, display){
     }
 }
 
-//Adds a tag to the search bar
-function addTag(tagData){
-  const tag = tagFactory(tagData);
-  const tagDOM = tag.getTagDOM();
-  tagSection.appendChild(tagDOM);
-}
-  
-//Events adding tags to main search bar
-filters.forEach((filter) => {
-    const filterElems = filter.querySelectorAll("ul li");
-    filterElems.forEach((filterElem)=>{
-        filterElem.addEventListener("click", ()=>addTag({name:filterElem.textContent, type:filter.getAttribute("type-color")}));
-    })
-});
-
 //Events changing the filters lists when the input changes to match the input
 filters.forEach((filter) => {
     const filterInput = filter.querySelector("input");
-    const filterElems = filter.querySelectorAll("ul li");
-
-    filterInput.addEventListener("input",()=>filterElems.forEach((filterElem)=>{
+    filterInput.addEventListener("input",()=>
+    {
+        const filterElems = filter.querySelectorAll("ul li");
+        filterElems.forEach((filterElem)=>{
         filterElem.style.display = filterElem.textContent.toLowerCase().includes(filterInput.value.toLowerCase()) ? "block" : "none";
-    }));
+    })
+    });
 });
