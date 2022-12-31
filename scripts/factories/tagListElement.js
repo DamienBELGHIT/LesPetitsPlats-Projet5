@@ -1,10 +1,10 @@
 import { addTag } from "../utils/tag.js";
 
-//Factory function creating a filter element in a filter list
-export function filterElementFactory(data){
+//Factory function creating a tagList element in a tagList
+export function tagListElementFactory(data){
     const {name, type} = data;
     
-    function getFilterDOM(){
+    function getTagListDOM(){
         const container = document.createElement("li");
         container.textContent = name;
 
@@ -14,6 +14,6 @@ export function filterElementFactory(data){
         return(container);
     }
 
-    return {getFilterDOM};
+    return {getTagListDOM};
 }
 
