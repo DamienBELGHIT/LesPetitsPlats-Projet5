@@ -65,7 +65,7 @@ h2{
 }
 
 .filter input {
-    width: 100px;
+    width: 100%;
     background: 0;
     border: 0;
     font-size: 18px;
@@ -82,12 +82,11 @@ h2{
 }
 
 .filter ul {
+    width: 100%;
     display: none;
     list-style: none;
     padding: 0;
     position: absolute;
-    width: 130px;    
-    padding: 20px;
     left: 0px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -95,10 +94,29 @@ h2{
 
 .filter li {
     cursor: pointer;
+    margin: 2px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .filter li:hover {
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.filter[widen="true"]{
+    width: 80%;
+}
+
+.filter[widen="true"] ul{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, 210px);
+    justify-content: space-between;
+    grid-gap: 5px;
+}
+
+.filter[widen="true"] li {
+    width: 200px;
 }
 
 .recipes_section {
