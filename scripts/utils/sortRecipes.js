@@ -4,7 +4,7 @@ export function sortRecipesGlobal(recipes, string){
     let sortedRecipes = [];
     for (let i = 0; i < recipes.length; i++) {
         let found = false;
-        if(recipes[i].name.toLowerCase().includes(string) || recipes[i].description.toLowerCase().includes(string) + recipes[i].appliance.toLowerCase().includes(string)){
+        if(recipes[i].name.toLowerCase().includes(string) || recipes[i].description.toLowerCase().includes(string) || recipeIncludeStringDevices(recipes[i], string)){
             found = true;
         }else{
             found = (recipeIncludeStringIngredients(recipes[i], string)) ? true : recipeIncludeStringUstensils(recipes[i], string);
@@ -39,3 +39,9 @@ export function recipeIncludeStringUstensils(recipe, string){
     }
     return found;
 }
+
+//Returns true if the recipe includes a certain string in their devices, false otherwise
+export function recipeIncludeStringDevices(recipe, string){
+    return recipe.appliance.toLowerCase().includes(string);
+}
+

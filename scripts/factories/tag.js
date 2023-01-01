@@ -1,3 +1,5 @@
+import { removeTag } from "../utils/tag.js";
+
 //Factory function creating a tag
 export function tagFactory(data){
     const {name, type} = data;
@@ -14,12 +16,7 @@ export function tagFactory(data){
         //remove icon
         const icon_delete = document.createElement("i");
         icon_delete.classList.add("fa-regular", "fa-circle-xmark");
-        icon_delete.addEventListener("click", ()=>removeTag(div_main));
-        
-        //Removes a tag from the search bar
-        function removeTag(tag){
-            tag.remove();
-        }
+        icon_delete.addEventListener("click", ()=>removeTag(div_main, data));
 
         //assembling
         div_main.appendChild(div_name);
