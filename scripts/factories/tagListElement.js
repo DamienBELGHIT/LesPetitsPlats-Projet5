@@ -4,7 +4,7 @@ import { addTag } from "../utils/tag.js";
 export function tagListElementFactory(data){
     const {name, type} = data;
     
-    function getTagListDOM(){
+    function getTagListElementDOM(){
         const container = document.createElement("li");
         container.textContent = name;
 
@@ -14,6 +14,6 @@ export function tagListElementFactory(data){
         return(container);
     }
 
-    return {getTagListDOM};
+    return {getTagListElementDOM};
 }
 

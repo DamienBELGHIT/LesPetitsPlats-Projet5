@@ -3,7 +3,7 @@ import { tagListElementFactory } from "../factories/tagListElement.js";
 //Get DOM elements
 const tagLists = document.querySelectorAll(".tagList");
 
-//Increase/Decrease tagList list size and changes placeholder
+//Increase/Decrease tagList's list width and changes placeholder
 function setTagListWide(tagList, widen){
     //Wides tagList if there's more than 15 elements visible
     const MIN_ELEMENTS = 15;
@@ -15,22 +15,15 @@ function setTagListWide(tagList, widen){
     tagList.setAttribute("widen", widen);
 }
 
-//Closes all tagLists when there's a click outside them
-window.addEventListener("click", (e)=>{
-    !(Array.from(tagLists).some((tagList) => tagList.contains(e.target))) && closeAllTagLists()
-});
-
-//Expands a tagList
-function expandList(tagList){
-    closeAllTagLists();
-    const tagList_list = tagList.querySelector("ul");
-    displayTagList(tagList, !(tagList_list.style.display === "block"));
-}
-
-//Changes all tagLists list display to none 
+//Hides all tagLists list
 function closeAllTagLists(){
     tagLists.forEach((tagList)=>displayTagList(tagList, false));
 }
+
+//Closes all tagLists when there's a click outside them
+window.addEventListener("click", (e)=>{
+  !(Array.from(tagLists).some((tagList) => tagList.contains(e.target))) && closeAllTagLists()
+});
 
 //Change the display style of the tagList list to block or none
 function displayTagList(tagList, display){
@@ -51,6 +44,13 @@ function displayTagList(tagList, display){
     }
 }
 
+//Toggles the tagList's list visibility
+function toggleListVisibility(tagList){
+  closeAllTagLists();
+  const tagList_list = tagList.querySelector("ul");
+  displayTagList(tagList, !(tagList_list.style.display === "block"));
+}
+
 //Arrays keeping tracks of all tagList elements to prevent doubles
 let ingredientTagLists = [];
 let deviceTagLists = [];
@@ -64,7 +64,15 @@ export function clearAllTagListsElements(){
   ustensilTagLists = [];
 }
 
-//Inserts all elements of a recipe to all tagList
+
+//Inserts a tagList element into a list
+function addTagListElement(name, type, list){
+  const tagListElementModel = tagListElementFactory({name:name.charAt(0).toUpperCase() + name.slice(1), type:type});
+  const tagListElementDOM = tagListElementModel.getTagListElementDOM();
+  list.appendChild(tagListElementDOM);
+}
+
+//Inserts all elements from a recipe to all tagList
 export function addTagListsElements(recipe){
   //adds elements to ingredient tagList
   const tagListIngredient = document.getElementById("ingredient-tagList");
@@ -97,13 +105,7 @@ export function addTagListsElements(recipe){
   });
 }
 
-//Inserts a tagList element into a list
-function addTagListElement(name, type, list){
-  const tagListElementModel = tagListElementFactory({name:name.charAt(0).toUpperCase() + name.slice(1), type:type});
-  const tagListElementDOM = tagListElementModel.getTagListDOM();
-  list.appendChild(tagListElementDOM);
-}
-
+//Initialization
 tagLists.forEach((tagList)=>{
     const tagListInput = tagList.querySelector("input");
 
@@ -112,10 +114,10 @@ tagLists.forEach((tagList)=>{
 
     //Events expanding tagList
     tagList.addEventListener("click", ()=>{
-        expandList(tagList);
+      toggleListVisibility(tagList);
     });
     tagListInput.addEventListener("focus", ()=>{
-        expandList(tagList);
+      toggleListVisibility(tagList);
     });
 
     //Events making all tagList elements match input

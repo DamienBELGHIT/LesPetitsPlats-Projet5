@@ -44,4 +44,3 @@ export function recipeIncludeStringUstensils(recipe, string){
 export function recipeIncludeStringDevices(recipe, string){
     return recipe.appliance.toLowerCase().includes(string);
 }
-

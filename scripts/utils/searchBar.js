@@ -1,6 +1,7 @@
 import { recipes } from "../../data/recipe.js";
 import { displayRecipes } from "../utils/recipesDisplay.js";
-import { sortRecipesAllCriterias } from "./sortRecipesAllCriterias.js";
+import { sortRecipesGlobal } from "./sortRecipes.js";
+import { activeTags } from "./tag.js";
 
 export const MIN_CHARACTER_BEFORE_SORT = 3;
 
@@ -12,3 +13,13 @@ export const searchBarInput = searchBar.querySelector("input");
 searchBarInput.addEventListener("input", ()=>{
     displayRecipes(sortRecipesAllCriterias(recipes));
 });
+
+//Sorts all recipes matching main search bar and tags
+export function sortRecipesAllCriterias(recipesToSort){
+    let sortedRecipes = recipesToSort;
+    (searchBarInput.value.length >= MIN_CHARACTER_BEFORE_SORT) && (sortedRecipes = sortedRecipes.filter(recipe => sortRecipesGlobal(sortedRecipes, searchBarInput.value).includes(recipe)));
+    activeTags.forEach((currentTag)=>{
+        sortedRecipes = sortedRecipes.filter(recipe => sortRecipesGlobal(sortedRecipes, currentTag.name).includes(recipe));
+    });
+    return sortedRecipes;
+}

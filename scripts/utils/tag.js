@@ -1,6 +1,6 @@
 import { tagFactory } from "../factories/tag.js";
 import {recipeIncludeStringIngredients, recipeIncludeStringUstensils, recipeIncludeStringDevices } from "./sortRecipes.js";
-import { sortRecipesAllCriterias } from "./sortRecipesAllCriterias.js";
+import { sortRecipesAllCriterias } from "./searchBar.js";
 import { currentRecipes, displayRecipes } from "./recipesDisplay.js";
 import { recipes } from "../../data/recipe.js";
 
@@ -44,4 +44,3 @@ export function removeTag(tag, tagData){
     //sort all recipes
     displayRecipes(sortRecipesAllCriterias(recipes));
 }
-
