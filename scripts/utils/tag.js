@@ -22,13 +22,13 @@ export function addTag(tagData){
     let sortedRecipes=[];
     switch (tagData.type) {
         case 'ingredient':
-            currentRecipes.forEach((recipe)=>recipeIncludeStringIngredients(recipe, tagData.name.toLowerCase()) && sortedRecipes.push(recipe));
+            currentRecipes.forEach((recipe)=>recipeIncludeStringIngredients(recipe, tagData.name.toLowerCase(), true) && sortedRecipes.push(recipe));
             break;
         case 'ustensil':
-            currentRecipes.forEach((recipe)=>recipeIncludeStringUstensils(recipe, tagData.name.toLowerCase()) && sortedRecipes.push(recipe));
+            currentRecipes.forEach((recipe)=>recipeIncludeStringUstensils(recipe, tagData.name.toLowerCase(), true) && sortedRecipes.push(recipe));
             break;
         case 'device':
-            currentRecipes.forEach((recipe)=>recipeIncludeStringDevices(recipe, tagData.name.toLowerCase()) && sortedRecipes.push(recipe));
+            currentRecipes.forEach((recipe)=>recipeIncludeStringDevices(recipe, tagData.name.toLowerCase(), true) && sortedRecipes.push(recipe));
             break;
         default:
             console.log("Error : Tag type not covered");

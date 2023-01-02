@@ -14,12 +14,17 @@ searchBarInput.addEventListener("input", ()=>{
     displayRecipes(sortRecipesAllCriterias(recipes));
 });
 
-//Sorts all recipes matching main search bar and tags
+//Returns all recipes matching main search bar and tags
 export function sortRecipesAllCriterias(recipesToSort){
     let sortedRecipes = recipesToSort;
-    (searchBarInput.value.length >= MIN_CHARACTER_BEFORE_SORT) && (sortedRecipes = sortedRecipes.filter(recipe => sortRecipesGlobal(sortedRecipes, searchBarInput.value).includes(recipe)));
-    activeTags.forEach((currentTag)=>{
-        sortedRecipes = sortedRecipes.filter(recipe => sortRecipesGlobal(sortedRecipes, currentTag.name).includes(recipe));
+    (searchBarInput.value.length >= MIN_CHARACTER_BEFORE_SORT) && (sortedRecipes = arraysIntersection(sortedRecipes, sortRecipesGlobal(sortedRecipes, searchBarInput.value)));
+    activeTags.forEach((tag)=>{
+        sortedRecipes = arraysIntersection(sortedRecipes, sortRecipesGlobal(sortedRecipes, tag.name));
     });
     return sortedRecipes;
+}
+
+//Returns the intersection between 2 arrays
+function arraysIntersection(array1, array2){
+    return array1.filter(elem => array2.includes(elem));
 }

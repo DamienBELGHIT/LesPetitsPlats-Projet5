@@ -7,7 +7,6 @@ export let currentRecipes = [];
 //Get DOM elements
 const recipeSection = document.querySelector('.recipes_section');
 
-
 //displays the recipes in the recipes section
 export function displayRecipes(recipes) {
     currentRecipes = recipes;  
