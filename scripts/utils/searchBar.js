@@ -26,5 +26,9 @@ export function sortRecipesAllCriterias(recipesToSort){
 
 //Returns the intersection between 2 arrays
 function arraysIntersection(array1, array2){
-    return array1.filter(elem => array2.includes(elem));
+    let arrayResult = [];
+    for(let i=0; i < array1.length; i++){
+       array2.includes(array1[i]) && (arrayResult.push(array1[i]));
+    }
+    return arrayResult;
 }
