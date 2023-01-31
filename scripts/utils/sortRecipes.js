@@ -1,16 +1,12 @@
 //Returns all recipes that include a certain string in an array
 export function sortRecipesGlobal(recipes, string){
     string = string.toLowerCase();
-    let sortedRecipes = [];
-    recipes.forEach((recipe)=>{
-        let found = false;
-        if(recipe.name.toLowerCase().includes(string) || recipe.description.toLowerCase().includes(string) || recipeIncludeStringDevices(recipe, string, false)){
-            found = true;
-        }else{
-            found = (recipeIncludeStringIngredients(recipe, string, false)) ? true : recipeIncludeStringUstensils(recipe, string, false);
-        }
-        found && sortedRecipes.push(recipe);
-    });
+    const sortedRecipes = recipes.filter(recipe => (
+        recipe.name.toLowerCase().includes(string) 
+        || recipe.description.toLowerCase().includes(string) 
+        || recipeIncludeStringDevices(recipe, string, false) 
+        || recipeIncludeStringIngredients(recipe, string, false) 
+        || recipeIncludeStringUstensils(recipe, string, false)));
     return sortedRecipes;
 }
 
