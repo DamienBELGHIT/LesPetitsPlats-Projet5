@@ -25,7 +25,7 @@ window.addEventListener("click", (e)=>{
   !(Array.from(tagLists).some((tagList) => tagList.contains(e.target))) && closeAllTagLists()
 });
 
-//Change the display style of the tagList list to block or none
+//Changes the display style of the tagList list to block or none
 function displayTagList(tagList, display){
     const arrow_icon = tagList.querySelector("i");
     const tagList_list = tagList.querySelector("ul");
@@ -74,6 +74,29 @@ function addTagListElement(name, type, list){
 
 //Inserts all elements from a recipe to all tagList
 export function addTagListsElements(recipe){
+
+  //prevents tagged elements to be shown in the list
+  const tagSection = document.querySelector(".tags_section");
+  const tags = tagSection.childNodes;
+  tags.forEach((tag) =>{
+    const tagTxt = tag.querySelector("span").textContent;
+    const tagType = tag.getAttribute("type-color");
+    switch (tagType) {
+      case 'ingredient':
+        ingredientTagLists.push(tagTxt.toLowerCase());
+        break;
+      case 'ustensil':
+        ustensilTagLists.push(tagTxt.toLowerCase());
+        break;
+      case 'device':  
+      deviceTagLists.push(tagTxt.toLowerCase());
+        break;
+      default:
+        console.log(`Error : unknown type of tag`);
+    }
+    
+  })
+
   //adds elements to ingredient tagList
   const tagListIngredient = document.getElementById("ingredient-tagList");
   const ingredientList = tagListIngredient.querySelector("ul");
@@ -103,6 +126,7 @@ export function addTagListsElements(recipe){
       addTagListElement(ustensil, "ustensil", ustensilList);
     }
   });
+
 }
 
 //Initialization
