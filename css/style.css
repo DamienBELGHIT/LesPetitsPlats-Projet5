@@ -4,8 +4,11 @@ body{
 
 header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+}
+
+main{
+    padding: 0 50px;
 }
 
 h2{
@@ -15,7 +18,7 @@ h2{
 
 #form-search-recipe{
     display: flex;
-    width: 95%;
+    width: 100%;
     justify-content: center;
     flex-direction: column;
 }
@@ -23,7 +26,7 @@ h2{
 #searchbar {
     display: flex;
     height: 69px;
-    width: 95%;
+    width: 100%;
     border-radius: 5px;
 }
 
@@ -121,8 +124,8 @@ h2{
 
 .recipes_section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 480px);
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 380px);
+    justify-content: space-between;
     grid-gap: 5px;
 }
 
@@ -131,7 +134,7 @@ h2{
     flex-direction: column;
     justify-content: space-between;
     background-color: #C7BEBE;
-    margin: 5px;
+    margin-bottom: 50px;
     border-radius: 10px;    
     overflow: hidden;
 }
@@ -141,7 +144,7 @@ h2{
 }
 
 .recipe section{
-    padding: 20px;
+    padding: 15px;
     background-color: #E7E7E7;
     font-size: 12px;
 }
