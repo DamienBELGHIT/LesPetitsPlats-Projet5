@@ -6,7 +6,8 @@ export function sortRecipesGlobal(recipes, string){
         || recipe.description.toLowerCase().includes(string) 
         || recipeIncludeStringDevices(recipe, string, false) 
         || recipeIncludeStringIngredients(recipe, string, false) 
-        || recipeIncludeStringUstensils(recipe, string, false)));
+        || recipeIncludeStringUstensils(recipe, string, false)
+        ));
     return sortedRecipes;
 }
 
